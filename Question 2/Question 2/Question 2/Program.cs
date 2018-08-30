@@ -15,10 +15,24 @@ namespace Question_2
             float x = 0;
             for (int i = 0; i < 10; i++)
             {
-                Console.WriteLine("Enter number " + c);
+                float y = 0;
+                string safe = "yes";
+                do
+                {
+                    Console.WriteLine("Enter number " + c);
 
-                float y = float.Parse(Console.ReadLine());
-                x= x + y;
+                    if (!float.TryParse(Console.ReadLine(), out y))
+                    {
+                        Console.WriteLine("this is not a number");
+                        safe = "no";
+
+
+                    }else { safe = "yes"; }
+                } while (safe != "yes");
+
+
+
+                 x = x + y;
                 c++;
             }
             x = x / 10;

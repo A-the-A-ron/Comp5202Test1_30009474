@@ -10,18 +10,36 @@ namespace question_1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Enter a number, and I will tell you if it's even");
-            int check = int.Parse(Console.ReadLine()); 
-            if (check % 2 == 0)
+            string c = "clear";
+            do
             {
-                Console.WriteLine("That number is even.");
-            }
-            else
-            {
-                Console.WriteLine("that number is odd.");
-            }
+                Console.WriteLine("Enter a number, and I will tell you if it's even");
+            
+                int check = 0;
+            
+            
+                if (!int.TryParse(Console.ReadLine(), out check))
+                {
+
+                    Console.WriteLine("This is not a number");
+                    c = "woops";
+                }
+
+
+                else if (check % 2 == 0)
+                {
+                    Console.WriteLine("That number is even.");
+                    c = "clear";
+                }
+                else
+                {
+                    Console.WriteLine("that number is odd.");
+                    c = "clear";
+                }
+            } while (c == "woops");
             Console.WriteLine("press enter to close");
             Console.ReadLine();
+
         }
     }
 }

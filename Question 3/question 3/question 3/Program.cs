@@ -12,15 +12,36 @@ namespace question_3
         {
             Console.WriteLine("This program will expand a basic quadratic equation.");
             Console.WriteLine($" \t ( x + n ) ( x + m)");
-
+            string safe = "yes";
             Console.WriteLine();
             Console.WriteLine("LOOKING AT THE ABOVE BRACKETS...");
             Console.WriteLine();
-            Console.WriteLine("Enter a +ive or -ve value for n");
-            float n = float.Parse(Console.ReadLine());
-            Console.WriteLine("Enter a +ive or -ve value for m");
-            float m = float.Parse(Console.ReadLine());
-            Console.WriteLine();
+            float n = 0;
+            float m = 0;
+            do
+            {
+                Console.WriteLine("Enter a +ive or -ve value for n");
+                
+                if (!float.TryParse(Console.ReadLine(),out n))
+                {
+                    Console.WriteLine("this is not a number");
+                    safe = "no";
+                }
+                else { safe = "yes"; }
+            } while (safe != "yes");
+            do
+            {
+                Console.WriteLine("Enter a +ive or -ve value for m");
+                
+                if (!float.TryParse(Console.ReadLine(), out m))
+                {
+                    Console.WriteLine("this is not a number");
+                    safe = "no";
+                }
+                else { safe = "yes"; }
+            } while (safe != "yes");
+
+             Console.WriteLine();
             string b;
             string c;
             Console.WriteLine();
